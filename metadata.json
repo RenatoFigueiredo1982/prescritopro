@@ -1,0 +1,5 @@
+{
+  "name": "Prescrito Pro",
+  "description": "Uma aplicação web para gerar modelos de prescrição e buscar informações detalhadas sobre medicamentos, incluindo interações. Com a marca Prescrito Pro, oferecemos uma ferramenta inteligente para um cuidado eficiente.",
+  "requestFramePermissions": []
+}

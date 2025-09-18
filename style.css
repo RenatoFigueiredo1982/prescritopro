@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles for dark mode - no longer necessary in HTML */
+html {
+  background-color: #111827; /* gray-900 */
+}
+
+/* Print styles - moved from HTML */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .printable-prescription, .printable-prescription * {
+    visibility: visible;
+    color: black !important;
+    background-color: transparent !important;
+  }
+  .printable-prescription {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 1.5cm; /* Standard print margin */
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 12pt;
+    font-family: serif;
+    line-height: 1.4;
+    background-color: white !important; /* Ensure white background */
+    box-sizing: border-box;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
