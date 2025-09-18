@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 
 // Types
@@ -111,7 +110,7 @@ const App: React.FC = () => {
         try {
             window.localStorage.setItem('hasSeenLanding', 'true');
         } catch (error) {
-             console.error("Erro ao salvar no localStorage", error);
+            console.error("Erro ao salvar no localStorage", error);
         }
         setShowLanding(false);
     };
@@ -336,7 +335,7 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="lg:col-span-2 space-y-8">
-                         {renderResults()}
+                            {renderResults()}
                     </div>
                 </div>
 
@@ -390,7 +389,7 @@ const App: React.FC = () => {
                 )}
                 
                 {prescriptionsWithoutFolder.length > 0 && (
-                     <div className="mt-12 max-w-screen-2xl mx-auto">
+                    <div className="mt-12 max-w-screen-2xl mx-auto">
                         <h2 className="text-2xl font-bold text-white mb-4">Prescrições Salvas (sem pasta)</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                             {prescriptionsWithoutFolder.map(p => {
@@ -407,7 +406,7 @@ const App: React.FC = () => {
                                         : 'border-white/20 hover:border-sky-400'
                                     }`}
                                 >
-                                   <div className="flex-1 overflow-hidden" onClick={() => setViewingPrescription(p)}>
+                                    <div className="flex-1 overflow-hidden" onClick={() => setViewingPrescription(p)}>
                                         <p className="font-semibold text-white truncate">
                                             {firstMed ? `${firstMed.medicamento} para ${p.nomePaciente}` : `Prescrição para ${p.nomePaciente}`}
                                         </p>
@@ -415,23 +414,23 @@ const App: React.FC = () => {
                                             {firstMed ? `${firstMed.apresentacao} - ${firstMed.posologia}` : p.diagnostico}
                                         </p>
                                    </div>
-                                   <div className="flex items-center space-x-2">
-                                        <span className={`text-xs font-semibold px-2 py-1 rounded-full ${p.tipo === 'simples' ? 'bg-sky-200/20 text-sky-200' : 'bg-amber-200/20 text-amber-200'}`}>
-                                            {p.tipo === 'simples' ? 'Simples' : 'Especial'}
-                                        </span>
-                                        <button 
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleDeletePrescription(p.id!);
-                                            }}
-                                            className="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                                            aria-label="Deletar prescrição"
-                                        >
-                                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-                                            </svg>
-                                        </button>
-                                   </div>
+                                    <div className="flex items-center space-x-2">
+                                         <span className={`text-xs font-semibold px-2 py-1 rounded-full ${p.tipo === 'simples' ? 'bg-sky-200/20 text-sky-200' : 'bg-amber-200/20 text-amber-200'}`}>
+                                             {p.tipo === 'simples' ? 'Simples' : 'Especial'}
+                                         </span>
+                                         <button 
+                                             onClick={(e) => {
+                                                 e.stopPropagation();
+                                                 handleDeletePrescription(p.id!);
+                                             }}
+                                             className="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                             aria-label="Deletar prescrição"
+                                         >
+                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                 <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                                             </svg>
+                                         </button>
+                                    </div>
                                 </div>
                             )})}
                         </div>
@@ -444,13 +443,13 @@ const App: React.FC = () => {
             </footer>
 
             {isProfileSetupVisible && (
-                 <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-start z-50 p-4 overflow-y-auto">
-                    <ProfileSetup 
-                        initialData={profileData} 
-                        onSave={handleSaveProfile} 
-                        onClose={() => profileData && setIsProfileSetupVisible(false)} // Only allow close if profile already exists
-                     />
-                 </div>
+                    <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-start z-50 p-4 overflow-y-auto">
+                        <ProfileSetup 
+                            initialData={profileData} 
+                            onSave={handleSaveProfile} 
+                            onClose={() => profileData && setIsProfileSetupVisible(false)} // Only allow close if profile already exists
+                          />
+                    </div>
             )}
 
             {viewingPrescription && (
@@ -467,9 +466,9 @@ const App: React.FC = () => {
                             className="absolute top-3 right-3 p-1.5 rounded-full text-gray-300 bg-black/30 hover:bg-black/50 z-10 no-print"
                             aria-label="Fechar"
                         >
-                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                         </button>
                         <div className="p-4 sm:p-6 lg:p-8">
                             {viewingPrescription.tipo === 'simples' ? (
